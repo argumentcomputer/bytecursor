@@ -2,7 +2,14 @@
 name = "bytecursor"
 version = "0.1.0"
 edition = "2018"
-
+license = "MIT"
+description = "No_std buffer library "
+repository = "https://github.com/yatima-inc/bytecursor/"
+homepage = "https://github.com/yatima-inc/bytecursor/"
+readme = "README.md"
+documentation = "https://doc.rs/bytecursor"
+categories = ["no-std"]
+keywords = ["no_std", "io"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
