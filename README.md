@@ -1,6 +1,6 @@
 # Bytecursor
 
-![docs](https://docs.rs/bytecursor/badge.svg?version=0.1.1)
+![docs](https://docs.rs/bytecursor/badge.svg)
 
 `bytecursor` is a fully-featured `std::io::Read`, `std::io::Write`, and `std::io::Seek`. It was created for use in `sp-ipld` as a concrete replacement for the originally trait-generic parameters. It should be fully equivalent to a `std::io::Cursor<Vec<u8>>` for all intents and purposes.
 
