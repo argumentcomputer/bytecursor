@@ -7,7 +7,7 @@ description = "`No-std` replacement for `std::io::Read`, `std::io::Write`, and `
 repository = "https://github.com/yatima-inc/bytecursor/"
 homepage = "https://github.com/yatima-inc/bytecursor/"
 readme = "README.md"
-documentation = "https://doc.rs/bytecursor"
+documentation = "https://docs.rs/bytecursor"
 categories = ["no-std"]
 keywords = ["no_std", "io"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
