@@ -16,7 +16,7 @@ jobs:
           access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
     - uses: cachix/cachix-action@v10
       with:
-        name: yatima
+        name: bytecursor
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
     - run: nix build
     - run: nix flake check
