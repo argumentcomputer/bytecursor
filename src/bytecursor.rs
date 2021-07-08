@@ -20,22 +20,32 @@ pub struct ByteCursor {
 }
 
 impl ByteCursor {
+  /// Creates a new `Bytecursor` from the inner bytes it will contains.
+  /// Sets the position to 0 initially.
   #[must_use]
   pub const fn new(inner: Vec<u8>) -> Self { Self { pos: 0, inner } }
 
+  /// Consumes the `Bytecursor`, returning the inner bytes.
   #[must_use]
   pub fn into_inner(self) -> Vec<u8> { self.inner }
 
+  /// Returns an immutable reference to the inner bytes of the `Bytecursor`
   #[must_use]
   pub const fn get_ref(&self) -> &Vec<u8> { &self.inner }
 
+  /// Returns a mutable reference to the inner bytes of the `Bytecursor`
   pub fn get_mut(&mut self) -> &mut Vec<u8> { &mut self.inner }
 
+  /// Returns the current position of the `Bytecursor`
   #[must_use]
   pub const fn position(&self) -> u64 { self.pos }
 
+  /// Sets the position of the `Bytecursor` to `pos`
   pub fn set_position(&mut self, pos: u64) { self.pos = pos }
 
+  /// Reads `buf.len()` bytes into `buf` from `read`, advancing
+  /// the `Bytecursor`'s position. It returns the number of bytes 
+  /// actually read.
   pub fn read(&mut self, buf: &mut [u8]) -> usize {
     let from = &mut self.fill_buf();
     let amt = cmp::min(buf.len(), from.len());
@@ -51,6 +61,8 @@ impl ByteCursor {
     amt
   }
 
+  /// Reads exactly `buf.len()` bytes into `buf`, throwing an error if 
+  /// that number of bytes was not able to be read.
   /// # Errors
   ///
   /// Will return `Err` if the buffer is longer than the available bytes to read
@@ -74,11 +86,16 @@ impl ByteCursor {
     Ok(())
   }
 
+  /// Returns a byte slice containing all remaining bytes 
+  /// in the inner bytes after the current position of the 
+  /// `Bytecursor`.
   pub fn fill_buf(&mut self) -> &[u8] {
     let amt = cmp::min(self.pos, self.inner.len() as u64);
     &self.inner[(amt as usize)..] // may truncate
   }
 
+  /// Seeks to the position referenced by `style`, returning the new position
+  /// of the `Bytecursor` and throwing an error if the new position would be invalid.
   /// # Errors
   ///
   /// Will return `Err` if one tries to seek to a negative or overflowing
@@ -112,6 +129,8 @@ impl ByteCursor {
     }
   }
 
+  /// Writes `buf.len()` bytes into `buf`. Returns the number of bytes actually 
+  /// read if successful, and throws an error if there aren't enough bytes to read.
   /// # Errors
   ///
   /// Will return `Err` if the cursor position exceeds maximum possible vector
@@ -135,6 +154,7 @@ impl ByteCursor {
     Ok(buf.len())
   }
 
+  /// Writes all of `buf` to the `Bytecursor` until `buf` is empty.
   /// # Errors
   ///
   /// Will return `Err` if the cursor position exceeds maximum possible vector
