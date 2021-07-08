@@ -1,6 +1,6 @@
 # Bytecursor
-
-![docs](https://docs.rs/bytecursor/badge.svg)
+[![Crates.io](https://img.shields.io/crates/v/bytecursor)](https://crates.io/crates/bytecursor)
+[![docs.rs](https://img.shields.io/docsrs/bytecursor.svg)](https://docs.rs/bytecursor)
 
 `bytecursor` is a fully-featured `std::io::Read`, `std::io::Write`, and `std::io::Seek`. It was created for use in `sp-ipld` as a concrete replacement for the originally trait-generic parameters. It should be fully equivalent to a `std::io::Cursor<Vec<u8>>` for all intents and purposes.
 
@@ -28,10 +28,6 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
-
-This project was forked from https://github.com/multiformats/rust-multihash
-(Copyright © 2015-2016 Friedel Ziegelmayer) and 
-contains code which is subject to the terms of the MIT License.
 
 ## Code of Conduct
 
