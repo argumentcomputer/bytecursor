@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1623875721,
+        "narHash": "sha256-A8BU7bjS5GirpAUv4QA+QnJ4CceLHkcXdRp4xITDB0s=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "f7e004a55b120c02ecb6219596820fcd32ca8772",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "naersk": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -20,11 +35,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1625765225,
-        "narHash": "sha256-BBGWdk5Pu9t0gwDvUjaNZFSrlT+R447It4HmnkNw3w0=",
+        "lastModified": 1626246609,
+        "narHash": "sha256-hHEpt91arGLVs34xKDL4KKHJPO4VnNPGs6eQSCj1Wug=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f82099ff923876dc334d4a1adc30e9d5418c6ddf",
+        "rev": "9ea790e2f024bfaaf891890dea752a9d1ff8f3e3",
         "type": "github"
       },
       "original": {
@@ -34,11 +49,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1625765225,
-        "narHash": "sha256-BBGWdk5Pu9t0gwDvUjaNZFSrlT+R447It4HmnkNw3w0=",
+        "lastModified": 1626251344,
+        "narHash": "sha256-DWt35/837roZ2g66RejCkk+ClzoYTq2xzs2KAoAZUns=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "f82099ff923876dc334d4a1adc30e9d5418c6ddf",
+        "rev": "b4c4784f7e3f220cbb4affaabf402a8be059a21a",
         "type": "github"
       },
       "original": {
@@ -49,23 +64,26 @@
     },
     "root": {
       "inputs": {
-        "naersk": "naersk",
-        "nixpkgs": "nixpkgs_2",
         "utils": "utils"
       }
     },
     "utils": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "naersk": "naersk",
+        "nixpkgs": "nixpkgs_2"
+      },
       "locked": {
-        "lastModified": 1623875721,
-        "narHash": "sha256-A8BU7bjS5GirpAUv4QA+QnJ4CceLHkcXdRp4xITDB0s=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "f7e004a55b120c02ecb6219596820fcd32ca8772",
+        "lastModified": 1626205814,
+        "narHash": "sha256-QgYCpE76PO8E6gd8zlV9l8ZmSsnN9k81bbIqvz3Jk/8=",
+        "owner": "yatima-inc",
+        "repo": "nix-utils",
+        "rev": "d6284edc1a0ed095f847f8b475136e3890d55ddd",
         "type": "github"
       },
       "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
+        "owner": "yatima-inc",
+        "repo": "nix-utils",
         "type": "github"
       }
     }
