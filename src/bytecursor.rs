@@ -1,11 +1,13 @@
-use sp_std::{
-  borrow::ToOwned,
+use core::{
   cmp,
   convert::TryInto,
-  vec::Vec,
 };
 
-use alloc::string::String;
+use alloc::{
+  borrow::ToOwned,
+  string::String,
+  vec::Vec,
+};
 
 pub enum SeekFrom {
   Start(u64),
@@ -44,7 +46,7 @@ impl ByteCursor {
   pub fn set_position(&mut self, pos: u64) { self.pos = pos }
 
   /// Reads `buf.len()` bytes into `buf` from `read`, advancing
-  /// the `Bytecursor`'s position. It returns the number of bytes 
+  /// the `Bytecursor`'s position. It returns the number of bytes
   /// actually read.
   pub fn read(&mut self, buf: &mut [u8]) -> usize {
     let from = &mut self.fill_buf();
@@ -61,7 +63,7 @@ impl ByteCursor {
     amt
   }
 
-  /// Reads exactly `buf.len()` bytes into `buf`, throwing an error if 
+  /// Reads exactly `buf.len()` bytes into `buf`, throwing an error if
   /// that number of bytes was not able to be read.
   /// # Errors
   ///
@@ -86,8 +88,8 @@ impl ByteCursor {
     Ok(())
   }
 
-  /// Returns a byte slice containing all remaining bytes 
-  /// in the inner bytes after the current position of the 
+  /// Returns a byte slice containing all remaining bytes
+  /// in the inner bytes after the current position of the
   /// `Bytecursor`.
   pub fn fill_buf(&mut self) -> &[u8] {
     let amt = cmp::min(self.pos, self.inner.len() as u64);
@@ -95,8 +97,8 @@ impl ByteCursor {
   }
 
   /// Seeks to the position referenced by `style`, returning the new position
-  /// of the `Bytecursor` and throwing an error if the new position would be invalid.
-  /// # Errors
+  /// of the `Bytecursor` and throwing an error if the new position would be
+  /// invalid. # Errors
   ///
   /// Will return `Err` if one tries to seek to a negative or overflowing
   /// position
@@ -129,9 +131,9 @@ impl ByteCursor {
     }
   }
 
-  /// Writes `buf.len()` bytes into `buf`. Returns the number of bytes actually 
-  /// read if successful, and throws an error if there aren't enough bytes to read.
-  /// # Errors
+  /// Writes `buf.len()` bytes into `buf`. Returns the number of bytes actually
+  /// read if successful, and throws an error if there aren't enough bytes to
+  /// read. # Errors
   ///
   /// Will return `Err` if the cursor position exceeds maximum possible vector
   /// length
