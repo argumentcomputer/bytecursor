@@ -1,6 +1,6 @@
 [package]
 name = "bytecursor"
-version = "0.1.2"
+version = "0.2.0"
 edition = "2018"
 license = "MIT"
 description = "`No-std` replacement for `std::io::Read`, `std::io::Write`, and `std::io::Seek`"
